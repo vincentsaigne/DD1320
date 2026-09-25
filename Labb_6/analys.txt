@@ -1,0 +1,33 @@
+    Resultat sökning
+.                            n = 250 000     n = 500 000     n = 1 000 000
+Linjärsökning           |       74s             150s            302s
+Binärsökning            |       0.032s           0.032s           0.034s
+Sökning i hashtabell    |       0.0006s         0.0006s         0.0006s
+
+
+    Analys av sökning
+Linjärsökning sköer igenom hela listan för varje gång vilket ger den en tidskomplexitet på O(n)
+Vi ser att i mätningarna så dubleras tiden när antalet datapunkter dubleras vilket är rimligt givet den linjära
+tidskomplexiteten.
+
+Binärsökning söker genom en sorterad lista vilket halverar antalet möjliga träffar efter varje jämförlse.
+Detta gen den en tidskomplexitet på O(logn). Vid dessa tal kommer tiden inte ändras betydligt mycket efter
+varje försök.
+
+Sökning i hashtabell sker genom att ha en nyckel istället för att läsa igenom hela listan.
+Detta ger den en tidskomplexitet på O(1) vilket vi kan se i resultatet då det tad lika lång tid varje gång
+
+
+    Resultat sortering
+.                        n = 1 000        n = 10 000       n = 100 000      n = 1 000 000
+urvalssortering     |       0.03s           3s              319s                för stor
+quicksort           |       0.001s          0.013s          0.18s               3.8s
+
+
+    Analys av sortering
+Urvalssortering har en tidskomplexitet på O(n^2). Detta innebär att tiden ökar markant med en
+ökning av data. Gämförelde av antal sökningar mellan första och andra testet kan göras:
+(10 000^2) / (1000^2) = 100 vilket förklara varför att tidsökningen mellan testerna sker med en faktor av 100
+
+Quicksort delar upp listan i mindre delar om och om igen vilket minskar antalet jämförlser som krävs. 
+Detta ger en tidskomplexitet på O(nlogn). Detta kan vi de i hur tidsökningen ökar ungefär med en faktor 10.
